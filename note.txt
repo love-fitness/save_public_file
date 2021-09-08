@@ -1,0 +1,16 @@
+npm install webpack webpack-cli -g 全局安装 不推介
+
+npm uninstall webpack webpack-cli -g 卸载
+
+推介安装
+-D 开发环境 等同于 --save-dev
+--save
+npm install webpack webpack-cli -D   开发环境
+
+npx 这个工具 查看当前项目是否安装成功
+
+npm info 查看可以安装的版本信息
+
+npm install rnm
+
+nrm ls 查看那些源可以使用
