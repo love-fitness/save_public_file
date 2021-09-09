@@ -1,5 +1,5 @@
 // import { list } from "./list";
-// import './assets/css/index.less';
+import './assets/css/index.less';
 // import './assets/font/1.ttf';
 
 // list()
@@ -21,5 +21,8 @@
 // import { fn1, fn2 } from './common/unitl';
 
 // fn1();
-import { chunk } from 'lodash-es';
-console.log(chunk([1, 2, 3]));
+// import { chunk } from 'lodash-es';
+// console.log(chunk([1, 2, 3]));
+
+import jQuery from "jquery";
+console.log(index.js);

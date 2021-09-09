@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   // 默认 production 打包文件压缩   开发： development, 不被压缩
@@ -13,7 +14,7 @@ module.exports = {
   entry: {
     index: './src/index.js',
     demo: './src/demo.js',
-    jquery: "jquery", // 打包优化
+    // jquery: "jquery", // 打包优化
   },
   output: {
     // 自定义打包文件名
@@ -25,6 +26,11 @@ module.exports = {
     // 默认添加打包之后的前缀地址  例如： 使用cdn 添加前面的https地址
     // publicPath: 'https://yideng.com/'
     publicPath: './'
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
   },
   module: {
     rules: [
@@ -89,9 +95,9 @@ module.exports = {
       template: './src/index.html'
     }),
     new CleanWebpackPlugin(),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-    })
+    // new webpack.ProvidePlugin({
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    // })
   ]
 }

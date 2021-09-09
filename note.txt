@@ -80,6 +80,20 @@ loades  fn
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 打包优化
 1、入口配置： entry 多入口
-2、抽取公共代码： splitchuunks
-3、动态加载： 按需加载、懒加载
+2、抽取公共代码： splitChunksPlugins
+3、动态加载： 按需加载、懒加载  @babel/plugin-syntax-dynamic-import
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+css 文件代码分割  一版生产环境需要
+mini-css-extract-plugin
+optimize-css-assets-webpack-plugin
+
+配置代码分割压缩css代码， optimization: 要注意影响到js代码压缩，需要手动配置 terser-webpack-plugin
+
+代码包分析工具
+webpack-bundle-analyzer
+
+
+
+
 

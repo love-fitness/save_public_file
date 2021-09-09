@@ -35,6 +35,7 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "lodash-es": "^4.17.21",
+    "mini-css-extract-plugin": "^2.2.2",
     "nrm": "^1.2.1",
     "webpack-merge": "^5.8.0"
   }
