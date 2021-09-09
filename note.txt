@@ -14,3 +14,72 @@ npm info 查看可以安装的版本信息
 npm install rnm
 
 nrm ls 查看那些源可以使用
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ // 什么是 loader
+ 文件预处理器
+ less-loader html-loader css-loader file-loader......
+ 特定的处理各种文件方案
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ // 错误定位
+ sourceMap 
+
+~~~~~~~~~~~~
+HMR  hot module replacement  热更新
+
+开启步骤
+1、使用webpack-dev-server作为服务器启动
+2、devServer配置中  hot：true
+3、plugins hotModuleReplaceMentPlugin
+4、js模块中增加module.hot.accept 增加hmr代码
+
+
+~~~~~~~~~~~~~~~~~~~~
+babel js的编译器
+
+npm install @babel/core @babel/preset-env babel-loader
+
+已经使用了 @babel/preset-env  es6+ 语法转换 ？
+
+标准引入的语法： 箭头函数、 let 、 const等  可以转换
+
+标准引入的全局变量，部分原生的对象新增的原型链上的方法 不可以  Promise、symbol、set...
+
+polyfill
+npm install @babel/preset  全局变量的形式将方法注入的； 开发类库、ui组件时 全局变量的污染。  + corejs 配合使用
+
+// 推荐使用
+@babel/plugin-transform-runtime    es5+语法也可以转换 保证全局环境不被污染  （以闭包的形式注入） + @babel/runtime-corejs3
+
+总结：
+  核心概念  entry output loader plugin devServer 
+
+
+
+~~~~~~~~~~~~~~~~~~~~  高级概念
+treeShaking 摇树优化  console.log()  无用的代码  依赖es6模块语法
+引入类库的时候只加载使用的方法  eg： lodash-es.js  (必须使用是common.js/es6语法支持)
+
+webpack4+ 以上  mode： 'production'
+
+loades  fn
+
+~~~~~~~~~~~~~~~~~~~~~~ 环境区分
+思路： 
+开发环境： devServer, sourceMap, 接口代理 proxy, ......
+生产环境： treeShaking, 代码压缩， 提取公共代码......
+共同点： 同样的入口，部分相同代码的处理
+
+方案：
+  webpack.prod.js // 生产
+  webpack.dev.js // 开发
+  webpack.base.js // 相同代码
+  借用一个工具  webpack-merge
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+打包优化
+1、入口配置： entry 多入口
+2、抽取公共代码： splitchuunks
+3、动态加载： 按需加载、懒加载
+
